@@ -47,7 +47,7 @@ return [
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'mata_kriss'),
+            'database' => env('DB_DATABASE', 'mata_kris'),
             'username' => env('DB_USERNAME', 'ragnadmin'),
             'password' => env('DB_PASSWORD', '*Jamery*8877'),
             'unix_socket' => env('DB_SOCKET', ''),
