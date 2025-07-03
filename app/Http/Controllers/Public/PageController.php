@@ -24,5 +24,25 @@ class PageController extends Controller
         $concerts = Concert::where('date', '>=', now())->orderBy('date', 'asc')->get();
         return view('public.concerts', compact('concerts'));
     }
-    // ... autres méthodes pour galerie, contact, etc.
+
+    // AJOUT DE LA MÉTHODE GALERIE
+    public function galerie()
+    {
+        $photos = Photo::latest()->get(); // Récupère toutes les photos, les plus récentes en premier
+        return view('public.galerie', compact('photos'));
+    }
+
+    // AJOUT DE LA MÉTHODE CONTACT
+    public function contact()
+    {
+        return view('public.contact');
+    }
+    
+    // Vous aurez besoin de cette méthode plus tard pour traiter le formulaire
+    public function handleContactForm(Request $request)
+    {
+        // Logique de traitement du formulaire (envoi d'email, etc.)
+        // Pour l'instant, on redirige avec un message de succès.
+        return redirect()->route('contact')->with('success', 'Votre message a bien été envoyé !');
+    }
 }

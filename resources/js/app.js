@@ -1,12 +1,12 @@
 import './bootstrap';
-import './leaves.js'; // Ajoutez cette ligne
-
+// Supprimez ou commentez la ligne suivante :
+// import './leaves.js'; 
 
 document.addEventListener('DOMContentLoaded', function() {
     const container = document.getElementById('leaf-container');
     if (!container) return; // Sécurité si le conteneur n'existe pas
 
-    const numberOfLeaves = 25; // <-- Vous pouvez changer ce nombre (plus = plus de feuilles)
+    const numberOfLeaves = 25; 
 
     // On définit les couleurs de nos feuilles
     const autumnColors = ['#c57b57', '#a47148', '#8a5a44']; // Couleurs d'automne
@@ -21,36 +21,26 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
 
     for (let i = 0; i < numberOfLeaves; i++) {
-        // Crée un div pour la feuille
         const leaf = document.createElement('div');
         leaf.className = 'leaf';
         leaf.innerHTML = leafSVG;
 
-        // --- C'est ici qu'on ajoute l'aléatoire ---
-
-        // Position de départ horizontale aléatoire
         leaf.style.left = Math.random() * 100 + 'vw';
 
-        // Taille aléatoire
-        const randomSize = Math.random() * 30 + 20; // Entre 20px et 50px
+        const randomSize = Math.random() * 30 + 20;
         leaf.style.width = randomSize + 'px';
         leaf.style.height = randomSize + 'px';
 
-        // Couleur aléatoire parmi celles définies
         leaf.style.color = allColors[Math.floor(Math.random() * allColors.length)];
         
-        // Vitesse de chute et de balancement aléatoire
-        const fallDuration = Math.random() * 8 + 7; // Entre 7 et 15 secondes
-        const swayDuration = Math.random() * 4 + 3; // Entre 3 et 7 secondes
+        const fallDuration = Math.random() * 8 + 7;
+        const swayDuration = Math.random() * 4 + 3; 
 
-        // Délai de départ aléatoire pour ne pas que toutes les feuilles partent en même temps
         const delay = Math.random() * 5;
 
-        // On applique les animations avec les durées et délais aléatoires
         leaf.style.animationDuration = `${fallDuration}s, ${swayDuration}s`;
         leaf.style.animationDelay = `${delay}s, ${delay}s`;
         
-        // Ajoute la feuille à notre scène
         container.appendChild(leaf);
     }
 });

@@ -12,6 +12,9 @@ Route::get('/galerie', [PageController::class, 'galerie'])->name('galerie');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::post('/contact', [PageController::class, 'handleContactForm'])->name('contact.submit');
 
+Route::get('/dashboard', function () {
+    return redirect()->route('admin.dashboard');
+})->middleware(['auth'])->name('dashboard');
 // --- Routes de l'Administration ---
 // 'prefix' ajoute /admin à l'URL
 // 'middleware' protège l'accès (seuls les utilisateurs connectés peuvent y accéder)
@@ -22,6 +25,6 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('concerts', AdminConcertController::class);
     Route::resource('photos', AdminPhotoController::class);
 });
-
+Route::get('/info-php', function () { phpinfo(); });
 // Ajoute les routes d'authentification (login, logout, etc.)
 require __DIR__.'/auth.php';

@@ -29,6 +29,17 @@ Route::middleware('auth')->group(function () {
 
     Volt::route('confirm-password', 'auth.confirm-password')
         ->name('password.confirm');
+
+    // --- ROUTES AJOUTÉES POUR LES PARAMÈTRES ---
+    Volt::route('settings/profile', 'settings.profile')
+        ->name('settings.profile');
+
+    Volt::route('settings/password', 'settings.password')
+        ->name('settings.password');
+
+    Volt::route('settings/appearance', 'settings.appearance')
+        ->name('settings.appearance');
+    // --- FIN DES AJOUTS ---
 });
 
 Route::post('logout', App\Livewire\Actions\Logout::class)
