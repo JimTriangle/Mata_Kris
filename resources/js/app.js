@@ -3,9 +3,16 @@ import './bootstrap';
 // import './leaves.js'; 
 
 document.addEventListener('DOMContentLoaded', function() {
-    const container = document.getElementById('leaf-container');
-    if (!container) return; // Sécurité si le conteneur n'existe pas
 
+    
+    const container = document.getElementById('leaf-container');
+   if (!container) {
+        console.log('Conteneur de feuilles non trouvé - animation désactivée');
+        return;
+    }
+if (window.location.pathname.startsWith('/admin')) {
+        return; // Pas d'animation dans l'admin
+    }
     const numberOfLeaves = 25; 
 
     // On définit les couleurs de nos feuilles

@@ -39,10 +39,26 @@ class PageController extends Controller
     }
     
     // Vous aurez besoin de cette méthode plus tard pour traiter le formulaire
-    public function handleContactForm(Request $request)
+     public function handleContactForm(Request $request)
     {
-        // Logique de traitement du formulaire (envoi d'email, etc.)
-        // Pour l'instant, on redirige avec un message de succès.
-        return redirect()->route('contact')->with('success', 'Votre message a bien été envoyé !');
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string|max:2000',
+        ]);
+
+        try {
+            // Ici vous pourriez envoyer un email
+            // Mail::send(...);
+            
+            // Ou sauvegarder en base de données
+            // ContactMessage::create($validated);
+            
+            return redirect()->route('contact')->with('success', 'Votre message a bien été envoyé !');
+            
+        } catch (Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Erreur lors de l\'envoi du message.']);
+        }
     }
 }

@@ -12,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         // AJOUTEZ CETTE LIGNE :
-        $middleware->web(\App\Http\Middleware\CspMiddleware::class);
+        
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

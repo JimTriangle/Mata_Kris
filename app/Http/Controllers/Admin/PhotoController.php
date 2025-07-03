@@ -1,53 +1,47 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Photo;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
+use Exception;
 
 class PhotoController extends Controller
 {
-    public function index()
-    {
-        $photos = Photo::latest()->paginate(12);
-        return view('admin.photos.index', compact('photos'));
-    }
-
-    public function create()
-    {
-        return view('admin.photos.create');
-    }
-
     public function store(Request $request)
     {
         $request->validate([
-            'photo' => 'required|image|max:5120',
+            'photo' => 'required|image|max:10240', // 10MB max
             'legende' => 'nullable|string|max:255',
         ]);
 
-        $imageFile = $request->file('photo');
-        $compressedImage = Image::make($imageFile)
-            ->resize(1200, null, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            })
-            ->encode('jpg', 75);
+        try {
+            $imageFile = $request->file('photo');
+            
+            // Vérifiez que le fichier est bien présent
+            if (!$imageFile || !$imageFile->isValid()) {
+                return redirect()->back()->withErrors(['photo' => 'Erreur lors du téléchargement de l\'image.']);
+            }
 
-        $base64Image = 'data:image/jpeg;base64,' . base64_encode($compressedImage);
+            $compressedImage = Image::make($imageFile)
+                ->resize(1200, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })
+                ->encode('jpg', 75);
 
-        Photo::create([
-            'image' => $base64Image,
-            'legende' => $request->input('legende'),
-        ]);
+            $base64Image = 'data:image/jpeg;base64,' . base64_encode($compressedImage);
 
-        return redirect()->route('admin.photos.index')->with('success', 'Photo ajoutée avec succès.');
-    }
+            Photo::create([
+                'image' => $base64Image,
+                'legende' => $request->input('legende'),
+            ]);
 
-    public function destroy(Photo $photo)
-    {
-        $photo->delete();
-        return redirect()->route('admin.photos.index')->with('success', 'Photo supprimée avec succès.');
+            return redirect()->route('admin.photos.index')->with('success', 'Photo ajoutée avec succès.');
+            
+        } catch (Exception $e) {
+            return redirect()->back()->withErrors(['photo' => 'Erreur lors du traitement de l\'image: ' . $e->getMessage()]);
+        }
     }
 }
