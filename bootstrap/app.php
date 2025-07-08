@@ -12,7 +12,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         // AJOUTEZ CETTE LIGNE :
-        
+        $middleware->alias([
+            'csp' => \App\Http\Middleware\CspMiddleware::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

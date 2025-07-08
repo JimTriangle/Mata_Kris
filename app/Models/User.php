@@ -58,4 +58,14 @@ class User extends Authenticatable
             ->map(fn ($word) => Str::substr($word, 0, 1))
             ->implode('');
     }
+
+    /**
+ * Get the user's gravatar.
+ */
+public function getGravatar(int $size = 200): string
+{
+    $hash = md5(strtolower(trim($this->email)));
+
+    return "https://www.gravatar.com/avatar/$hash?s=$size";
+}
 }
