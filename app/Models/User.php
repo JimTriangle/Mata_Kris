@@ -60,12 +60,12 @@ class User extends Authenticatable
     }
 
     /**
- * Get the user's gravatar.
- */
-public function getGravatar(int $size = 200): string
-{
-    $hash = md5(strtolower(trim($this->email)));
+     * Get the user's gravatar.
+     */
+    public function getGravatar(int $size = 200): string
+    {
+        $hash = md5(strtolower(trim($this->email)));
 
-    return "https://www.gravatar.com/avatar/$hash?s=$size";
-}
+        return "https://www.gravatar.com/avatar/$hash?s=$size";
+    }
 }
