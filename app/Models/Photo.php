@@ -9,4 +9,9 @@ class Photo extends Model
 {
     use HasFactory;
     protected $fillable = ['image', 'legende'];
+
+    public function getImageDataBase64Attribute(): string
+    {
+        return $this->image;
+    }
 }
