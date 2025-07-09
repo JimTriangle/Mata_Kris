@@ -118,6 +118,9 @@ header nav a::after {
 header nav a:hover::after {
     width: 100%;
 }
+header nav a.active::after {
+    width: 100%;
+}
 
 main {
     padding: 40px 0;
