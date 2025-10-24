@@ -5,14 +5,14 @@
 <div class="hero-modern">
     <div class="container">
         <div class="hero-content">
-            <div class="hero-badge">Duo Acoustique</div>
+            <div class="hero-badge">Duo de chant</div>
             <h1 class="hero-title">
                 <span class="hero-name mata">Mata</span>
                 <span class="hero-separator">&</span>
                 <span class="hero-name kris">Kris</span>
             </h1>
             <p class="hero-subtitle">Les Feuilles Chantantes</p>
-            <p class="hero-description">Musique acoustique, entre ombres et lumières.<br>
+            <p class="hero-description">Musiques variées, entre ombres et lumières.<br>
             Découvrez notre univers, nos prochaines dates de concert et notre galerie de souvenirs.</p>
             <div class="hero-buttons">
                 <a href="{{ route('concerts') }}" class="button button-primary">
