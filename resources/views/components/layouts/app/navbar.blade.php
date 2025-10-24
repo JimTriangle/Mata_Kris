@@ -2,26 +2,6 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     @include('partials.head')
-    <!-- Script de gestion du thème -->
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'light';
-            document.documentElement.classList.remove('light', 'dark');
-            document.documentElement.classList.add(theme);
-
-            window.toggleTheme = function() {
-                const html = document.documentElement;
-                const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-                html.classList.remove('light', 'dark');
-                html.classList.add(newTheme);
-                localStorage.setItem('theme', newTheme);
-
-                window.dispatchEvent(new CustomEvent('theme-changed', { detail: { theme: newTheme } }));
-            };
-        })();
-    </script>
 </head>
 <body class="min-h-screen bg-zinc-50 dark:bg-zinc-900">
     <!-- Navbar horizontale moderne -->
@@ -111,11 +91,12 @@
                         </div>
 
                         <a
-                            href="{{ route('admin.profile.edit') }}"
+                            href="{{ route('settings.profile') }}"
+                            wire:navigate
                             @class([
                                 'flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
-                                'bg-primary-50 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400' => request()->routeIs('admin.profile.edit'),
-                                'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' => ! request()->routeIs('admin.profile.edit'),
+                                'bg-primary-50 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400' => request()->routeIs('settings.*'),
+                                'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' => ! request()->routeIs('settings.*'),
                             ])
                         >
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -259,11 +240,12 @@
                     Photos
                 </a>
                 <a
-                    href="{{ route('admin.profile.edit') }}"
+                    href="{{ route('settings.profile') }}"
+                    wire:navigate
                     @class([
                         'flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium',
-                        'bg-primary-50 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400' => request()->routeIs('admin.profile.edit'),
-                        'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' => ! request()->routeIs('admin.profile.edit'),
+                        'bg-primary-50 dark:bg-primary-900/50 text-primary-600 dark:text-primary-400' => request()->routeIs('settings.*'),
+                        'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800' => ! request()->routeIs('settings.*'),
                     ])
                 >
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
