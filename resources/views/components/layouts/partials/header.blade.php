@@ -10,7 +10,13 @@
             </svg>
         </button>
 
-        <h1><a href="{{ route('accueil') }}">Mata & Kris</a></h1>
+        <h1>
+            <a href="{{ route('accueil') }}" style="text-decoration: none;">
+                <span class="hero-name mata">Mata</span>
+                <span class="hero-separator">&</span>
+                <span class="hero-name kris">Kris</span>
+            </a>
+        </h1>
         <p class="subtitle">Les Feuilles Chantantes</p>
         <nav>
             <a href="{{ route('accueil') }}" @class(['active' => request()->routeIs('accueil')])>Accueil</a>

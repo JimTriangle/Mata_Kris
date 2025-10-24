@@ -2749,6 +2749,19 @@ footer p {
     color: var(--color-autumn);
 }
 
+/* Boutons en mode sombre */
+.dark .button-outline {
+    background: #2a2a2a;
+    color: #e0e0e0;
+    border-color: #404040;
+}
+
+.dark .button-outline:hover {
+    background: var(--color-spring);
+    color: white;
+    border-color: var(--color-spring);
+}
+
 /* Formulaire contact */
 .dark input,
 .dark textarea,
