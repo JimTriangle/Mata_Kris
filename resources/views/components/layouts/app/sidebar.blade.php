@@ -2,39 +2,27 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     @include('partials.head')
-    <!-- Script de gestion du thème -->
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'light';
-            document.documentElement.classList.remove('light', 'dark');
-            document.documentElement.classList.add(theme);
-
-            window.toggleTheme = function() {
-                const html = document.documentElement;
-                const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-                html.classList.remove('light', 'dark');
-                html.classList.add(newTheme);
-                localStorage.setItem('theme', newTheme);
-
-                window.dispatchEvent(new CustomEvent('theme-changed', { detail: { theme: newTheme } }));
-            };
-        })();
-    </script>
 </head>
 <body class="min-h-screen bg-zinc-50 dark:bg-zinc-900">
     <div class="flex min-h-screen">
         <!-- Sidebar -->
         <aside
             x-data="{
-                open: window.innerWidth >= 1024,
+                open: false,
+                init() {
+                    // Initialiser l'état après le chargement complet d'Alpine
+                    this.$nextTick(() => {
+                        this.open = window.innerWidth >= 1024;
+                    });
+
+                    // Gérer le redimensionnement
+                    window.addEventListener('resize', () => {
+                        if (window.innerWidth >= 1024 && !this.open) {
+                            this.open = true;
+                        }
+                    });
+                }
             }"
-            x-init="
-                window.addEventListener('resize', () => {
-                    if (window.innerWidth >= 1024 && !open) open = true;
-                });
-            "
             :class="open ? 'w-64' : 'w-20'"
             class="relative h-screen bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 flex flex-col shrink-0 transition-all duration-300 sticky top-0"
         >
