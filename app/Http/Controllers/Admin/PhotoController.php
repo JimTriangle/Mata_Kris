@@ -9,6 +9,17 @@ use Exception;
 
 class PhotoController extends Controller
 {
+    public function index()
+    {
+        $photos = Photo::orderBy('created_at', 'desc')->paginate(12);
+        return view('admin.photos.index', compact('photos'));
+    }
+
+    public function create()
+    {
+        return view('admin.photos.create');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -43,5 +54,11 @@ class PhotoController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->withErrors(['photo' => 'Erreur lors du traitement de l\'image: ' . $e->getMessage()]);
         }
+    }
+
+    public function destroy(Photo $photo)
+    {
+        $photo->delete();
+        return redirect()->route('admin.photos.index')->with('success', 'Photo supprimée avec succès.');
     }
 }
