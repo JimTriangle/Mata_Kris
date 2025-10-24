@@ -1524,6 +1524,42 @@ footer p {
     backdrop-filter: blur(5px); /* Effet de flou sur l'arrière-plan */
 }
 
+/* Styles spécifiques pour les icônes SVG dans la sidebar admin */
+aside svg {
+    flex-shrink: 0 !important;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Force les icônes à respecter leurs dimensions Tailwind */
+aside .w-5 {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+}
+
+aside .w-4 {
+    width: 1rem !important;
+    height: 1rem !important;
+}
+
+aside .w-8 {
+    width: 2rem !important;
+    height: 2rem !important;
+}
+
+aside .w-3\.5 {
+    width: 0.875rem !important;
+    height: 0.875rem !important;
+}
+
+/* Avatar utilisateur dans la sidebar */
+aside img[alt="avatar"] {
+    width: 2rem !important;
+    height: 2rem !important;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
 /* Style pour les textes d'erreur de validation */
 .error-text {
     color: #c62828; /* Rouge pour les erreurs */
