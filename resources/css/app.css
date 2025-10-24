@@ -2333,6 +2333,7 @@ footer p {
     font-family: var(--font-primary);
     transition: all 0.3s ease;
     background: #fafafa;
+    color: var(--color-dark);
 }
 
 .auth-input:focus {
