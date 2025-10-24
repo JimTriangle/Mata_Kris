@@ -1091,6 +1091,7 @@ footer p {
     margin-bottom: 8px;
     font-weight: bold;
     font-size: 0.9rem;
+    color: var(--color-dark);
 }
 .contact-form input, .contact-form textarea {
     width: 100%;
@@ -1100,11 +1101,38 @@ footer p {
     font-family: var(--font-primary);
     font-size: 1rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    color: var(--color-dark);
 }
 .contact-form input:focus, .contact-form textarea:focus {
     outline: none;
     border-color: var(--color-spring);
     box-shadow: 0 0 0 3px rgba(106, 153, 78, 0.2);
+}
+
+/* Mode sombre pour le formulaire de contact */
+.dark .contact-form {
+    background: #2a2a2a;
+    border: 1px solid #404040;
+}
+.dark .contact-form label {
+    color: #e0e0e0;
+}
+.dark .contact-form input,
+.dark .contact-form textarea {
+    background: #1a1a1a;
+    border-color: #404040;
+    color: #e0e0e0;
+}
+.dark .contact-form input:focus,
+.dark .contact-form textarea:focus {
+    background: #2a2a2a;
+    border-color: var(--color-spring);
+    box-shadow: 0 0 0 3px rgba(106, 153, 78, 0.2);
+}
+.dark .contact-form input::placeholder,
+.dark .contact-form textarea::placeholder {
+    color: #888;
 }
 
 /* Messages de statut */
@@ -2233,6 +2261,13 @@ footer p {
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     position: relative;
+}
+
+/* Mode sombre pour auth card */
+.dark .auth-card {
+    background: #2a2a2a;
+    border: 1px solid #404040;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* --- En-tête Auth --- */

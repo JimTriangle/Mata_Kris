@@ -20,9 +20,18 @@
                     </svg>
                 </div>
                 <div class="stat-content">
-                    <div class="stat-value">{{ \App\Models\Concert::count() }}</div>
+                    @php
+                        try {
+                            $concertCount = \App\Models\Concert::count();
+                            $upcomingConcerts = \App\Models\Concert::where('date', '>=', now())->count();
+                        } catch (\Exception $e) {
+                            $concertCount = 0;
+                            $upcomingConcerts = 0;
+                        }
+                    @endphp
+                    <div class="stat-value">{{ $concertCount }}</div>
                     <div class="stat-label">Concerts</div>
-                    <div class="stat-sublabel">{{ \App\Models\Concert::where('date', '>=', now())->count() }} à venir</div>
+                    <div class="stat-sublabel">{{ $upcomingConcerts }} à venir</div>
                 </div>
             </div>
 
@@ -33,7 +42,14 @@
                     </svg>
                 </div>
                 <div class="stat-content">
-                    <div class="stat-value">{{ \App\Models\Photo::count() }}</div>
+                    @php
+                        try {
+                            $photoCount = \App\Models\Photo::count();
+                        } catch (\Exception $e) {
+                            $photoCount = 0;
+                        }
+                    @endphp
+                    <div class="stat-value">{{ $photoCount }}</div>
                     <div class="stat-label">Photos</div>
                     <div class="stat-sublabel">dans la galerie</div>
                 </div>
