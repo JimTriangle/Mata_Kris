@@ -15,6 +15,8 @@
     // Initialiser le thème avant le rendu de la page pour éviter le flash
     (function() {
         const theme = localStorage.getItem('theme') || 'light';
+        // Important: enlever toute classe existante avant d'ajouter le thème
+        document.documentElement.classList.remove('light', 'dark');
         document.documentElement.classList.add(theme);
 
         // Fonction globale pour toggle le thème

@@ -2940,3 +2940,26 @@ footer p {
 .dark aside [x-show="userOpen"] button:hover {
     background-color: #333 !important;
 }
+
+/* Boutons admin en mode sombre */
+.dark .button-admin-primary {
+    background: linear-gradient(135deg, var(--color-spring), #8ab573);
+    color: white;
+    box-shadow: 0 4px 15px rgba(106, 153, 78, 0.3);
+}
+
+.dark .button-admin-primary:hover {
+    box-shadow: 0 6px 20px rgba(106, 153, 78, 0.5);
+}
+
+.dark .button-admin-secondary {
+    background: #2a2a2a;
+    color: #fdfdfd;
+    border: 2px solid #404040;
+}
+
+.dark .button-admin-secondary:hover {
+    background: #333;
+    color: white;
+    border-color: var(--color-spring);
+}
