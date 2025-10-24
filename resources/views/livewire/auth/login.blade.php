@@ -73,43 +73,95 @@ new #[Layout('components.layouts.auth')] class extends Component {
     }
 }; ?>
 
-{{-- TOUT LE HTML EST ENVELOPPÉ DANS CE SEUL DIV --}}
-<div>
-    <div class="flex flex-col gap-6">
-        <x-auth-header :title="__('Log in to your account')" :description="__('Enter your email and password below to log in')" />
-
-        <x-auth-session-status class="text-center" :status="session('status')" />
-
-        {{-- ... --}}
-<form wire:submit="login" class="flex flex-col gap-6">
-    <div class="form-group">
-        <label for="email">{{ __('Email address') }}</label>
-        <input id="email" type="email" wire:model="email" required autofocus autocomplete="email" placeholder="email@example.com">
-        @error('email') <span class="error-text">{{ $message }}</span> @enderror
+<div class="auth-page">
+    {{-- En-tête de la page --}}
+    <div class="auth-header-section">
+        <div class="auth-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
+            </svg>
+        </div>
+        <h1 class="auth-title">Connexion</h1>
+        <p class="auth-subtitle">Accédez à votre espace d'administration Mata & Kris</p>
     </div>
 
-    <div class="form-group">
-        <label for="password">{{ __('Password') }}</label>
-        <input id="password" type="password" wire:model="password" required autocomplete="current-password" placeholder="Mot de passe">
-        @error('password') <span class="error-text">{{ $message }}</span> @enderror
-    </div>
+    <x-auth-session-status class="auth-status-message" :status="session('status')" />
 
-    <div class="flex items-center justify-between">
-        <label for="remember" class="flex items-center text-sm">
-            <input id="remember" type="checkbox" wire:model="remember" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500">
-            <span class="ml-2">{{ __('Remember me') }}</span>
-        </label>
-        <a href="{{ route('password.request') }}" wire:navigate>{{ __('Forgot your password?') }}</a>
-    </div>
+    {{-- Formulaire de connexion --}}
+    <form wire:submit="login" class="auth-form">
+        <div class="auth-form-group">
+            <label for="email" class="auth-label">
+                <svg class="auth-label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                Adresse email
+            </label>
+            <input
+                id="email"
+                type="email"
+                wire:model="email"
+                class="auth-input"
+                required
+                autofocus
+                autocomplete="email"
+                placeholder="votre@email.com"
+            >
+            @error('email')
+                <span class="auth-error">{{ $message }}</span>
+            @enderror
+        </div>
 
-    <button type="submit" class="button w-full">{{ __('Log in') }}</button>
-</form>
-{{-- ... --}}
-        @if (Route::has('register'))
-            <div class="text-center text-sm">
-                <span>{{ __("Don't have an account?") }}</span>
-                <a href="{{ route('register') }}" wire:navigate>{{ __('Sign up') }}</a>
-            </div>
-        @endif
-    </div>
+        <div class="auth-form-group">
+            <label for="password" class="auth-label">
+                <svg class="auth-label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+                Mot de passe
+            </label>
+            <input
+                id="password"
+                type="password"
+                wire:model="password"
+                class="auth-input"
+                required
+                autocomplete="current-password"
+                placeholder="••••••••"
+            >
+            @error('password')
+                <span class="auth-error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="auth-options">
+            <label for="remember" class="auth-checkbox-label">
+                <input
+                    id="remember"
+                    type="checkbox"
+                    wire:model="remember"
+                    class="auth-checkbox"
+                >
+                <span>Se souvenir de moi</span>
+            </label>
+            <a href="{{ route('password.request') }}" wire:navigate class="auth-link">
+                Mot de passe oublié ?
+            </a>
+        </div>
+
+        <button type="submit" class="auth-button">
+            <svg class="auth-button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+            </svg>
+            Se connecter
+        </button>
+    </form>
+
+    {{-- Lien d'inscription --}}
+    @if (Route::has('register'))
+        <div class="auth-footer">
+            <span>Pas encore de compte ?</span>
+            <a href="{{ route('register') }}" wire:navigate class="auth-link-bold">
+                Créer un compte
+            </a>
+        </div>
+    @endif
 </div>

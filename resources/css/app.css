@@ -145,10 +145,464 @@ footer p {
 
 /* --- 4. Styles des Pages Spécifiques --- */
 
-/* Page d'accueil */
+/* --- Hero Section Moderne --- */
+.hero-modern {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 0;
+    margin-bottom: 80px;
+    overflow: hidden;
+}
+
+.hero-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+        rgba(197, 123, 87, 0.05) 0%,
+        rgba(106, 153, 78, 0.05) 100%);
+    z-index: 0;
+}
+
+.hero-decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0.1;
+}
+
+.hero-decoration::before,
+.hero-decoration::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--color-spring) 0%, transparent 70%);
+}
+
+.hero-decoration::before {
+    width: 500px;
+    height: 500px;
+    top: -200px;
+    right: -100px;
+}
+
+.hero-decoration::after {
+    width: 400px;
+    height: 400px;
+    bottom: -150px;
+    left: -100px;
+    background: radial-gradient(circle, var(--color-autumn) 0%, transparent 70%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-dark);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.8s ease;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    margin: 1rem 0;
+    line-height: 1.1;
+    animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+.hero-name {
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hero-name.mata {
+    background: linear-gradient(135deg, var(--color-autumn), #d4936f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-name.kris {
+    background: linear-gradient(135deg, var(--color-spring), #8ab573);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-name:hover {
+    transform: translateY(-5px);
+}
+
+.hero-separator {
+    margin: 0 1rem;
+    color: var(--color-grey);
+    font-weight: 400;
+}
+
+.hero-subtitle {
+    font-family: var(--font-headings);
+    font-size: 1.8rem;
+    font-style: italic;
+    color: var(--color-dark);
+    margin: 1.5rem 0;
+    font-weight: 400;
+    animation: fadeInUp 0.8s ease 0.4s backwards;
+}
+
+.hero-description {
+    font-size: 1.15rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+    animation: fadeInUp 0.8s ease 0.6s backwards;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.8s backwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Boutons Modernisés --- */
+.button-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--color-spring), #8ab573);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    box-shadow: 0 6px 25px rgba(106, 153, 78, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.button-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.button-primary:hover::before {
+    left: 100%;
+}
+
+.button-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 35px rgba(106, 153, 78, 0.4);
+    color: white;
+}
+
+.button-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    color: var(--color-dark);
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid var(--color-grey);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.button-outline:hover {
+    background: var(--color-dark);
+    color: white;
+    border-color: var(--color-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.button-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* --- Sections Modernes --- */
+.section-concerts,
+.section-gallery {
+    padding: 80px 0;
+    position: relative;
+}
+
+.section-concerts {
+    background: linear-gradient(to bottom, transparent, rgba(106, 153, 78, 0.02), transparent);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title-modern {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.section-icon {
+    font-size: 2rem;
+    animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.section-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* --- Cards de Concerts Modernes --- */
+.concert-cards-home {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.concert-card-home {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.concert-card-home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--color-autumn), var(--color-spring));
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.concert-card-home:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.concert-card-home:hover::before {
+    transform: scaleY(1);
+}
+
+.concert-card-date {
+    background: linear-gradient(135deg, var(--color-autumn), #d4936f);
+    color: white;
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 80px;
+    box-shadow: 0 4px 15px rgba(197, 123, 87, 0.3);
+}
+
+.concert-day {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.concert-month {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.25rem;
+    opacity: 0.9;
+}
+
+.concert-card-details {
+    flex: 1;
+}
+
+.concert-card-title {
+    font-size: 1.3rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--color-dark);
+}
+
+.concert-card-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    margin: 0;
+}
+
+.location-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--color-spring);
+}
+
+.concert-card-arrow {
+    color: var(--color-grey);
+    transition: all 0.3s ease;
+}
+
+.concert-card-arrow svg {
+    width: 24px;
+    height: 24px;
+}
+
+.concert-card-home:hover .concert-card-arrow {
+    color: var(--color-spring);
+    transform: translateX(5px);
+}
+
+/* --- Galerie Moderne --- */
+.gallery-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.gallery-item-modern {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.gallery-item-modern::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+        rgba(197, 123, 87, 0.1),
+        rgba(106, 153, 78, 0.1));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.gallery-item-modern:hover::before {
+    opacity: 1;
+}
+
+.gallery-item-modern img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item-modern:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+
+.gallery-item-modern:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay p {
+    color: white;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* --- État vide --- */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #999;
+}
+
+.empty-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+    opacity: 0.5;
+}
+
+/* --- Anciennes classes maintenues pour compatibilité --- */
 .hero {
     text-align: center;
-   /* padding: 4rem 0;*/
     margin-bottom: 2rem;
 }
 .hero h2 {
@@ -174,14 +628,399 @@ footer p {
     list-style: none;
 }
 
-/* Page Concerts */
+/* --- Page Headers Modernes --- */
+.page-header-modern {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+}
+
+.page-title-modern {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.title-icon {
+    font-size: 3rem;
+    animation: bounce 2s ease infinite;
+}
+
+.page-subtitle-modern {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 400;
+}
+
+/* --- Page Concerts - Timeline Moderne --- */
+.concerts-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.concerts-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--color-autumn), var(--color-spring));
+    border-radius: 3px;
+}
+
+.concert-timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    animation: fadeInUp 0.6s ease backwards;
+}
+
+.concert-timeline-marker {
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 4px solid var(--color-spring);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 0 8px rgba(106, 153, 78, 0.1);
+}
+
+.concert-timeline-card {
+    width: calc(50% - 40px);
+    margin-left: auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.concert-timeline-item:nth-child(even) .concert-timeline-card {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.concert-timeline-card::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    width: 20px;
+    height: 2px;
+    background: var(--color-spring);
+}
+
+.concert-timeline-item:nth-child(odd) .concert-timeline-card::before {
+    left: -20px;
+}
+
+.concert-timeline-item:nth-child(even) .concert-timeline-card::before {
+    right: -20px;
+}
+
+.concert-timeline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.concert-date-badge {
+    background: linear-gradient(135deg, var(--color-autumn), #d4936f);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(197, 123, 87, 0.3);
+}
+
+.badge-day {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.badge-month {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+.badge-year {
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    opacity: 0.8;
+}
+
+.concert-info {
+    margin-bottom: 1.5rem;
+}
+
+.concert-ville {
+    font-size: 1.8rem;
+    color: var(--color-dark);
+    margin: 0 0 0.75rem 0;
+}
+
+.concert-lieu {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+}
+
+.lieu-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--color-spring);
+    flex-shrink: 0;
+}
+
+.concert-description {
+    color: #777;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.concert-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.button-icon-round {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--color-grey);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-icon-round svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-dark);
+}
+
+.button-icon-round:hover {
+    border-color: var(--color-spring);
+    background: var(--color-spring);
+    transform: scale(1.1);
+}
+
+.button-icon-round:hover svg {
+    color: white;
+}
+
+/* --- Page Galerie - Masonry Moderne --- */
+.gallery-masonry {
+    columns: 3;
+    column-gap: 1.5rem;
+}
+
+.gallery-item-masonry {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    animation: fadeInUp 0.6s ease backwards;
+}
+
+.gallery-item-masonry:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item-masonry img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item-masonry:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item-masonry:hover .gallery-caption {
+    transform: translateY(0);
+}
+
+.gallery-caption p {
+    color: white;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* --- Lightbox --- */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    position: relative;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.2s ease;
+}
+
+.lightbox-caption-text {
+    text-align: center;
+    color: white;
+    padding: 1.5rem;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10000;
+}
+
+.lightbox-close {
+    top: 2rem;
+    right: 2rem;
+}
+
+.lightbox-prev {
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-next {
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.lightbox-prev:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-next:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-close svg,
+.lightbox-prev svg,
+.lightbox-next svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+/* --- Empty State Pages --- */
+.empty-state-page {
+    text-align: center;
+    padding: 6rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.empty-icon-large {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 2rem;
+    color: var(--color-grey);
+    opacity: 0.6;
+}
+
+.empty-state-page h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+}
+
+.empty-state-page p {
+    font-size: 1.1rem;
+    color: #777;
+    margin-bottom: 2rem;
+}
+
+/* --- Anciennes classes concerts maintenues pour compatibilité --- */
 .concert-list {
     list-style: none;
     padding: 0;
 }
 .concert-list li {
     display: flex;
-    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur mobile */
+    flex-wrap: wrap;
     align-items: center;
     gap: 20px;
     padding: 25px;
@@ -204,10 +1043,10 @@ footer p {
     text-align: center;
     font-weight: bold;
     font-size: 1.2em;
-    flex-shrink: 0; /* Empêche la date de rétrécir */
+    flex-shrink: 0;
 }
 .concert-list .details {
-    flex-grow: 1; /* Prend l'espace restant */
+    flex-grow: 1;
 }
 .concert-list .details h3, .concert-list .details p {
     margin: 0;
@@ -216,7 +1055,7 @@ footer p {
     margin-left: auto;
 }
 
-/* Page Galerie */
+/* Anciennes classes galerie maintenues pour compatibilité */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -291,10 +1130,134 @@ footer p {
         display: block;
         margin: 10px 0;
     }
-    
+
+    /* Hero moderne responsive */
+    .hero-title {
+        font-size: 2.5rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-decoration::before,
+    .hero-decoration::after {
+        width: 300px;
+        height: 300px;
+    }
+
+    /* Page headers responsive */
+    .page-title-modern {
+        font-size: 2rem;
+    }
+
+    .title-icon {
+        font-size: 2rem;
+    }
+
+    .page-subtitle-modern {
+        font-size: 1rem;
+    }
+
+    /* Timeline concerts responsive */
+    .concerts-timeline::before {
+        left: 30px;
+    }
+
+    .concert-timeline-marker {
+        left: 30px;
+    }
+
+    .concert-timeline-card {
+        width: calc(100% - 80px);
+        margin-left: 60px !important;
+        margin-right: 0 !important;
+    }
+
+    .concert-timeline-card::before {
+        left: -30px !important;
+        right: auto !important;
+    }
+
+    .concert-ville {
+        font-size: 1.5rem;
+    }
+
+    .concert-lieu {
+        font-size: 1rem;
+    }
+
+    .badge-day {
+        font-size: 2rem;
+    }
+
+    .concert-actions {
+        justify-content: center;
+    }
+
+    /* Galerie masonry responsive */
+    .gallery-masonry {
+        columns: 1;
+    }
+
+    /* Lightbox responsive */
+    .lightbox-close {
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        bottom: 1rem;
+        top: auto;
+        transform: none;
+        width: 40px;
+        height: 40px;
+    }
+
+    .lightbox-prev {
+        left: 1rem;
+    }
+
+    .lightbox-next {
+        right: 1rem;
+    }
+
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+        transform: scale(1.1);
+    }
+
+    .lightbox-caption-text {
+        font-size: 0.95rem;
+        padding: 1rem;
+    }
+
+    /* Cards concerts home responsive */
+    .concert-cards-home {
+        grid-template-columns: 1fr;
+    }
+
+    /* Concert list ancienne version */
     .concert-list li {
-        flex-direction: column; /* Les éléments se mettent les uns sous les autres */
-        align-items: flex-start; /* Aligne tout à gauche */
+        flex-direction: column;
+        align-items: flex-start;
     }
     .concert-list .ticket-link {
         margin-left: 0;
@@ -306,62 +1269,140 @@ footer p {
         width: 100%;
     }
 
+    /* Gallery grid ancienne version */
     .gallery-grid {
-        grid-template-columns: 1fr; /* Une seule colonne */
+        grid-template-columns: 1fr;
+    }
+
+    /* Gallery grid modern home */
+    .gallery-grid-modern {
+        grid-template-columns: 1fr;
+    }
+
+    /* Empty states */
+    .empty-icon-large {
+        width: 80px;
+        height: 80px;
+    }
+
+    .empty-state-page h2 {
+        font-size: 1.5rem;
+    }
+
+    .empty-state-page p {
+        font-size: 1rem;
     }
 }
 
-/* --- 6. Animation des Feuilles --- */
+/* Responsive tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .gallery-masonry {
+        columns: 2;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .concerts-timeline::before {
+        left: 30px;
+    }
+
+    .concert-timeline-marker {
+        left: 30px;
+    }
+
+    .concert-timeline-card {
+        width: calc(100% - 80px);
+        margin-left: 60px !important;
+        margin-right: 0 !important;
+    }
+
+    .concert-timeline-card::before {
+        left: -30px !important;
+        right: auto !important;
+    }
+}
+
+/* --- 6. Animation des Feuilles Améliorée --- */
 #leaf-container {
-    position: fixed; /* Reste fixe même quand on scroll */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* 100% de la hauteur de l'écran */
-    overflow: hidden; /* Cache les feuilles qui sortent du cadre */
-    z-index: -1;  /* TRÈS IMPORTANT: Place le conteneur derrière tout le reste */
-    pointer-events: none; /* TRÈS IMPORTANT: Permet de cliquer à travers */
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .leaf {
     position: absolute;
-    top: -100px; /* Commence au-dessus de l'écran */
+    top: -100px;
     left: -100px;
-    width: 50px; /* Taille par défaut, sera modifiée par JS */
+    width: 50px;
     height: auto;
-    opacity: 0.7;
-    
-    /* On définit DEUX animations : une pour tomber, une pour se balancer */
-    animation-name: fall;
-    animation-timing-function: linear;
+    opacity: 0.6; /* Légèrement plus transparent pour plus de subtilité */
+    animation-name: fall, fadeInOut;
+    animation-timing-function: linear, ease-in-out;
     animation-iteration-count: infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)); /* Ombre douce pour du relief */
 }
 
 .leaf svg {
     width: 100%;
     height: 100%;
-    animation-name: sway;
-    animation-timing-function: ease-in-out;
+    animation-name: sway, rotate;
+    animation-timing-function: ease-in-out, linear;
     animation-iteration-count: infinite;
 }
 
-/* Animation de la chute */
+/* Animation de la chute avec accélération progressive */
 @keyframes fall {
-    to {
-        transform: translateY(105vh); /* Tombe jusqu'en bas de l'écran + un peu plus */
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(105vh);
     }
 }
 
-/* Animation du balancement */
+/* Animation du balancement horizontal */
 @keyframes sway {
-    0% {
-        transform: translateX(0px) rotate(0deg);
+    0%, 100% {
+        transform: translateX(0);
     }
-    50% {
-        transform: translateX(100px) rotate(-20deg);
+    25% {
+        transform: translateX(50px);
+    }
+    75% {
+        transform: translateX(-50px);
+    }
+}
+
+/* Animation de rotation douce */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
     }
     100% {
-        transform: translateX(0px) rotate(0deg);
+        transform: rotate(360deg);
+    }
+}
+
+/* Animation de fondu pour apparition/disparition progressive */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
@@ -478,4 +1519,1000 @@ footer p {
 
 .button-secondary:hover {
     background-color: #d1d5db; /* Gris un peu plus foncé au survol */
+}
+
+/* ===================================================================
+   STYLES ADMIN MODERNISÉS
+   =================================================================== */
+
+/* --- Dashboard Admin Moderne --- */
+.admin-dashboard-modern {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.dashboard-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0 0 0.5rem 0;
+}
+
+.dashboard-subtitle {
+    font-size: 1.1rem;
+    color: #777;
+    margin: 0;
+}
+
+.dashboard-date {
+    font-size: 0.95rem;
+    color: #999;
+    text-transform: capitalize;
+}
+
+/* --- Statistiques Cards --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.stat-card-concerts::before {
+    background: linear-gradient(to bottom, var(--color-autumn), #d4936f);
+}
+
+.stat-card-photos::before {
+    background: linear-gradient(to bottom, var(--color-spring), #8ab573);
+}
+
+.stat-card-site::before {
+    background: linear-gradient(to bottom, #6366f1, #8b5cf6);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card:hover::before {
+    width: 100%;
+    opacity: 0.05;
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-card-concerts .stat-icon {
+    background: linear-gradient(135deg, rgba(197, 123, 87, 0.1), rgba(197, 123, 87, 0.2));
+    color: var(--color-autumn);
+}
+
+.stat-card-photos .stat-icon {
+    background: linear-gradient(135deg, rgba(106, 153, 78, 0.1), rgba(106, 153, 78, 0.2));
+    color: var(--color-spring);
+}
+
+.stat-card-site .stat-icon {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(99, 102, 241, 0.2));
+    color: #6366f1;
+}
+
+.stat-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value-text {
+    font-size: 1.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #777;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.stat-sublabel {
+    font-size: 0.875rem;
+    color: #999;
+}
+
+.stat-link {
+    color: var(--color-spring);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.stat-link:hover {
+    color: var(--color-autumn);
+}
+
+/* --- Sections Admin --- */
+.quick-actions-section,
+.content-management-section {
+    margin-bottom: 3rem;
+}
+
+.section-title-admin {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 1.5rem;
+}
+
+/* --- Actions Rapides --- */
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.action-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--color-spring);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.action-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+.action-card:hover::before {
+    transform: scaleY(1);
+}
+
+.action-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.action-icon-autumn {
+    background: linear-gradient(135deg, var(--color-autumn), #d4936f);
+    color: white;
+}
+
+.action-icon-spring {
+    background: linear-gradient(135deg, var(--color-spring), #8ab573);
+    color: white;
+}
+
+.action-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.action-content {
+    flex: 1;
+}
+
+.action-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin: 0 0 0.25rem 0;
+}
+
+.action-description {
+    font-size: 0.9rem;
+    color: #777;
+    margin: 0;
+}
+
+.action-arrow {
+    font-size: 1.5rem;
+    color: var(--color-grey);
+    transition: all 0.3s ease;
+}
+
+.action-card:hover .action-arrow {
+    color: var(--color-spring);
+    transform: translateX(5px);
+}
+
+/* --- Content Cards --- */
+.content-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.content-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.content-card-header {
+    margin-bottom: 1rem;
+}
+
+.content-card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0;
+}
+
+.content-card-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-spring);
+}
+
+.content-card-description {
+    color: #777;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.content-card-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* --- Boutons Admin --- */
+.button-admin-primary,
+.button-admin-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.button-admin-primary {
+    background: linear-gradient(135deg, var(--color-spring), #8ab573);
+    color: white;
+    box-shadow: 0 4px 15px rgba(106, 153, 78, 0.3);
+}
+
+.button-admin-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(106, 153, 78, 0.4);
+    color: white;
+}
+
+.button-admin-secondary {
+    background: white;
+    color: var(--color-dark);
+    border: 2px solid var(--color-grey);
+}
+
+.button-admin-secondary:hover {
+    background: var(--color-dark);
+    color: white;
+    border-color: var(--color-dark);
+}
+
+/* --- Formulaire Admin Moderne --- */
+.admin-form-modern {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.form-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0 0 0.5rem 0;
+}
+
+.form-subtitle {
+    font-size: 1rem;
+    color: #777;
+    margin: 0;
+}
+
+.form-content {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Upload Zone Moderne --- */
+.upload-zone-wrapper {
+    margin-bottom: 2rem;
+}
+
+.upload-zone {
+    position: relative;
+    display: block;
+    border: 3px dashed var(--color-grey);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    background: #fafafa;
+}
+
+.upload-zone.drag-over {
+    border-color: var(--color-spring);
+    background: rgba(106, 153, 78, 0.05);
+}
+
+.upload-input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.upload-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.upload-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(106, 153, 78, 0.1), rgba(106, 153, 78, 0.2));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.upload-icon svg {
+    width: 40px;
+    height: 40px;
+    color: var(--color-spring);
+}
+
+.upload-text {
+    margin-bottom: 1rem;
+}
+
+.upload-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin: 0 0 0.5rem 0;
+}
+
+.upload-subtitle {
+    font-size: 1rem;
+    color: #777;
+    margin: 0;
+}
+
+.upload-formats {
+    font-size: 0.875rem;
+    color: #999;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+/* --- Prévisualisation Upload --- */
+.upload-preview {
+    position: relative;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.upload-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.preview-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.upload-zone:hover .preview-overlay {
+    opacity: 1;
+}
+
+.preview-overlay p {
+    color: white;
+    font-weight: 600;
+    margin: 0;
+}
+
+.preview-remove {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.preview-remove:hover {
+    background: #ff4444;
+    transform: scale(1.1);
+}
+
+.preview-remove svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-dark);
+}
+
+.preview-remove:hover svg {
+    color: white;
+}
+
+/* --- Form Groups Modernes --- */
+.form-group-modern {
+    margin-bottom: 2rem;
+}
+
+.form-label-modern {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.label-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--color-spring);
+}
+
+.label-optional {
+    font-weight: 400;
+    color: #999;
+    font-size: 0.875rem;
+}
+
+.form-input-modern {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--color-grey);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: var(--font-primary);
+}
+
+.form-input-modern:focus {
+    outline: none;
+    border-color: var(--color-spring);
+    box-shadow: 0 0 0 4px rgba(106, 153, 78, 0.1);
+}
+
+.form-help {
+    font-size: 0.875rem;
+    color: #999;
+    margin-top: 0.5rem;
+}
+
+.form-error {
+    color: #ff4444;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* --- Actions du Formulaire --- */
+.form-actions-modern {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding-top: 2rem;
+    border-top: 2px solid #f0f0f0;
+}
+
+.button-admin-cancel,
+.button-admin-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.button-admin-cancel {
+    background: white;
+    color: var(--color-dark);
+    border: 2px solid var(--color-grey);
+}
+
+.button-admin-cancel:hover {
+    background: #f5f5f5;
+}
+
+.button-admin-submit {
+    background: linear-gradient(135deg, var(--color-spring), #8ab573);
+    color: white;
+    box-shadow: 0 4px 15px rgba(106, 153, 78, 0.3);
+}
+
+.button-admin-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(106, 153, 78, 0.4);
+}
+
+.button-admin-cancel svg,
+.button-admin-submit svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* --- Responsive Admin --- */
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .dashboard-title {
+        font-size: 2rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-actions-grid,
+    .content-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions-modern {
+        flex-direction: column-reverse;
+    }
+
+    .button-admin-cancel,
+    .button-admin-submit {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .admin-form-modern {
+        padding: 1rem;
+    }
+
+    .form-content {
+        padding: 1.5rem;
+    }
+
+    .upload-placeholder {
+        padding: 2rem 1rem;
+    }
+}
+
+/* ===================================================================
+   STYLES AUTHENTIFICATION MODERNISÉS
+   =================================================================== */
+
+/* --- Layout Auth --- */
+.auth-main {
+    min-height: calc(100vh - 400px);
+    display: flex;
+    align-items: center;
+    padding: 4rem 0;
+}
+
+.auth-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.auth-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+/* --- En-tête Auth --- */
+.auth-header-section {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.auth-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, rgba(106, 153, 78, 0.1), rgba(106, 153, 78, 0.2));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInUp 0.6s ease;
+}
+
+.auth-icon svg {
+    width: 32px;
+    height: 32px;
+    color: var(--color-spring);
+}
+
+.auth-icon-register {
+    background: linear-gradient(135deg, rgba(197, 123, 87, 0.1), rgba(197, 123, 87, 0.2));
+}
+
+.auth-icon-register svg {
+    color: var(--color-autumn);
+}
+
+.auth-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0 0 0.5rem 0;
+    animation: fadeInUp 0.6s ease 0.1s backwards;
+}
+
+.auth-subtitle {
+    font-size: 1rem;
+    color: #777;
+    margin: 0;
+    animation: fadeInUp 0.6s ease 0.2s backwards;
+}
+
+/* --- Status Message --- */
+.auth-status-message {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(106, 153, 78, 0.1);
+    border-left: 4px solid var(--color-spring);
+    border-radius: 8px;
+    color: var(--color-spring);
+    font-weight: 500;
+}
+
+/* --- Formulaire Auth --- */
+.auth-page {
+    animation: fadeInUp 0.6s ease 0.3s backwards;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.auth-form-group {
+    position: relative;
+}
+
+.auth-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-dark);
+    margin-bottom: 0.75rem;
+}
+
+.auth-label-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--color-spring);
+}
+
+.auth-input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.auth-input:focus {
+    outline: none;
+    border-color: var(--color-spring);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(106, 153, 78, 0.1);
+}
+
+.auth-input::placeholder {
+    color: #999;
+}
+
+.auth-error {
+    display: block;
+    color: #ff4444;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* --- Options Auth (Remember me, Forgot password) --- */
+.auth-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.auth-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-dark);
+    cursor: pointer;
+}
+
+.auth-checkbox {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 2px solid #e0e0e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-checkbox:checked {
+    background: var(--color-spring);
+    border-color: var(--color-spring);
+}
+
+.auth-checkbox:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(106, 153, 78, 0.1);
+}
+
+.auth-link {
+    color: var(--color-spring);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.auth-link:hover {
+    color: var(--color-autumn);
+}
+
+/* --- Bouton Auth --- */
+.auth-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--color-spring), #8ab573);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(106, 153, 78, 0.3);
+    margin-top: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.auth-button:hover::before {
+    left: 100%;
+}
+
+.auth-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(106, 153, 78, 0.4);
+}
+
+.auth-button:active {
+    transform: translateY(0);
+}
+
+.auth-button-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* --- Footer Auth --- */
+.auth-footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #f0f0f0;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.auth-link-bold {
+    color: var(--color-spring);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+    margin-left: 0.5rem;
+}
+
+.auth-link-bold:hover {
+    color: var(--color-autumn);
+    text-decoration: underline;
+}
+
+/* --- Responsive Auth --- */
+@media (max-width: 768px) {
+    .auth-main {
+        padding: 2rem 0;
+    }
+
+    .auth-card {
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+    }
+
+    .auth-title {
+        font-size: 1.75rem;
+    }
+
+    .auth-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .auth-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .auth-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .auth-options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .auth-button {
+        padding: 0.875rem;
+    }
 }
