@@ -68,48 +68,90 @@ new #[Layout('components.layouts.auth')] class extends Component {
     }
 }; ?>
 
-<div class="flex flex-col gap-6">
-    <x-auth-header :title="__('Reset password')" :description="__('Please enter your new password below')" />
-
-    <!-- Session Status -->
-    <x-auth-session-status class="text-center" :status="session('status')" />
-
-    <form wire:submit="resetPassword" class="flex flex-col gap-6">
-        <!-- Email Address -->
-        <flux:input
-            wire:model="email"
-            :label="__('Email')"
-            type="email"
-            required
-            autocomplete="email"
-        />
-
-        <!-- Password -->
-        <flux:input
-            wire:model="password"
-            :label="__('Password')"
-            type="password"
-            required
-            autocomplete="new-password"
-            :placeholder="__('Password')"
-            viewable
-        />
-
-        <!-- Confirm Password -->
-        <flux:input
-            wire:model="password_confirmation"
-            :label="__('Confirm password')"
-            type="password"
-            required
-            autocomplete="new-password"
-            :placeholder="__('Confirm password')"
-            viewable
-        />
-
-        <div class="flex items-center justify-end">
-            <flux:button type="submit" variant="primary" class="w-full">
-                {{ __('Reset password') }}
-            </flux:button>
+<div class="auth-page">
+    {{-- En-tête de la page --}}
+    <div class="auth-header-section">
+        <div class="auth-icon" style="background: linear-gradient(135deg, #6a994e, #8ab573);">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
         </div>
+        <h1 class="auth-title">Réinitialiser le mot de passe</h1>
+        <p class="auth-subtitle">Veuillez entrer votre nouveau mot de passe</p>
+    </div>
+
+    <x-auth-session-status class="auth-status-message" :status="session('status')" />
+
+    {{-- Formulaire de réinitialisation --}}
+    <form wire:submit="resetPassword" class="auth-form">
+        <div class="auth-form-group">
+            <label for="email" class="auth-label">
+                <svg class="auth-label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                Adresse email
+            </label>
+            <input
+                id="email"
+                type="email"
+                wire:model="email"
+                class="auth-input"
+                required
+                autocomplete="email"
+                placeholder="votre@email.com"
+            >
+            @error('email')
+                <span class="auth-error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="auth-form-group">
+            <label for="password" class="auth-label">
+                <svg class="auth-label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+                Nouveau mot de passe
+            </label>
+            <input
+                id="password"
+                type="password"
+                wire:model="password"
+                class="auth-input"
+                required
+                autocomplete="new-password"
+                placeholder="••••••••"
+            >
+            @error('password')
+                <span class="auth-error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="auth-form-group">
+            <label for="password_confirmation" class="auth-label">
+                <svg class="auth-label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                Confirmer le mot de passe
+            </label>
+            <input
+                id="password_confirmation"
+                type="password"
+                wire:model="password_confirmation"
+                class="auth-input"
+                required
+                autocomplete="new-password"
+                placeholder="••••••••"
+            >
+            @error('password_confirmation')
+                <span class="auth-error">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <button type="submit" class="auth-button">
+            <svg class="auth-button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Réinitialiser le mot de passe
+        </button>
     </form>
 </div>
