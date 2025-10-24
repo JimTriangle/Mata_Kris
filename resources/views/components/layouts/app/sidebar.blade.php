@@ -2,6 +2,26 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="light">
 <head>
     @include('partials.head')
+    <!-- Script de gestion du thème -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.classList.remove('light', 'dark');
+            document.documentElement.classList.add(theme);
+
+            window.toggleTheme = function() {
+                const html = document.documentElement;
+                const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                html.classList.remove('light', 'dark');
+                html.classList.add(newTheme);
+                localStorage.setItem('theme', newTheme);
+
+                window.dispatchEvent(new CustomEvent('theme-changed', { detail: { theme: newTheme } }));
+            };
+        })();
+    </script>
 </head>
 <body class="min-h-screen bg-zinc-50 dark:bg-zinc-900">
     <div class="flex min-h-screen">
@@ -122,6 +142,19 @@
 
                 <!-- Bottom section -->
                 <div class="p-3 mt-auto border-t border-gray-200 dark:border-gray-800 space-y-2">
+                    <!-- Voir le site -->
+                    <a
+                        href="{{ route('accueil') }}"
+                        target="_blank"
+                        class="w-full flex items-center gap-3 p-2 rounded-md text-sm font-medium transition-colors duration-150 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
+                        :class="! open && 'justify-center'"
+                    >
+                        <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                        </svg>
+                        <span x-show="open" x-transition>Voir le site</span>
+                    </a>
+
                     <!-- Theme toggle -->
                     <button
                         onclick="window.toggleTheme()"
