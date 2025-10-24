@@ -2744,3 +2744,151 @@ footer p {
         height: 20px;
     }
 }
+
+/* ===================================================================
+   MODE SOMBRE - DASHBOARD ADMIN ET SIDEBAR
+   =================================================================== */
+
+/* Sidebar Admin en mode sombre */
+.dark aside {
+    background-color: #1a1a1a !important;
+    border-right-color: #404040 !important;
+}
+
+/* Boutons et éléments de la sidebar */
+.dark aside button,
+.dark aside a {
+    color: #e0e0e0 !important;
+}
+
+.dark aside button:hover,
+.dark aside a:hover {
+    background-color: #2a2a2a !important;
+    color: #fdfdfd !important;
+}
+
+/* Logo et bordures */
+.dark aside .border-b {
+    border-bottom-color: #404040 !important;
+}
+
+.dark aside .border-t {
+    border-top-color: #404040 !important;
+}
+
+/* Dashboard Admin en mode sombre */
+.dark .admin-dashboard-modern {
+    background-color: transparent;
+}
+
+.dark .dashboard-header {
+    border-bottom-color: #404040;
+}
+
+.dark .dashboard-title {
+    color: #fdfdfd;
+}
+
+.dark .dashboard-subtitle {
+    color: #b0b0b0;
+}
+
+.dark .dashboard-date {
+    color: #888;
+}
+
+/* Stats Cards en mode sombre */
+.dark .stat-card {
+    background: #2a2a2a;
+    border: 1px solid #404040;
+}
+
+.dark .stat-card:hover {
+    background: #333;
+    border-color: var(--color-spring);
+}
+
+.dark .stat-value {
+    color: #fdfdfd;
+}
+
+.dark .stat-label {
+    color: #b0b0b0;
+}
+
+.dark .stat-sublabel {
+    color: #888;
+}
+
+/* Action Cards en mode sombre */
+.dark .action-card {
+    background: #2a2a2a;
+    border: 1px solid #404040;
+}
+
+.dark .action-card:hover {
+    background: #333;
+    border-color: var(--color-spring);
+}
+
+.dark .action-title {
+    color: #fdfdfd;
+}
+
+.dark .action-description {
+    color: #b0b0b0;
+}
+
+/* Content Cards en mode sombre */
+.dark .content-card {
+    background: #2a2a2a;
+    border: 1px solid #404040;
+}
+
+.dark .content-card:hover {
+    background: #333;
+    border-color: var(--color-spring);
+}
+
+.dark .content-card-title {
+    color: #fdfdfd;
+}
+
+.dark .content-card-description {
+    color: #b0b0b0;
+}
+
+/* Sections titles */
+.dark .section-title-admin {
+    color: #fdfdfd;
+}
+
+/* Main content background */
+.dark main {
+    background-color: #0f0f0f !important;
+}
+
+/* Avatar et user menu */
+.dark aside img {
+    border: 2px solid #404040;
+}
+
+/* Icônes SVG en mode sombre */
+.dark aside svg {
+    color: #b0b0b0;
+}
+
+.dark aside button:hover svg,
+.dark aside a:hover svg {
+    color: #fdfdfd !important;
+}
+
+/* Dropdown menu */
+.dark aside [x-show="userOpen"] {
+    background-color: #2a2a2a !important;
+    border-color: #404040 !important;
+}
+
+.dark aside [x-show="userOpen"] button:hover {
+    background-color: #333 !important;
+}
