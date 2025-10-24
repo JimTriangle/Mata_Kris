@@ -3,24 +3,24 @@
     <head>
         <x-head />
     </head>
-    {{-- On modifie le body pour qu'il ressemble au layout public --}}
     <body>
-        {{-- Ajout du conteneur pour l'animation des feuilles --}}
+        {{-- Conteneur pour l'animation des feuilles --}}
         <div id="leaf-container"></div>
 
-        {{-- Inclusion de l'en-tête du site public --}}
+        {{-- En-tête du site public --}}
         @include('components.layouts.partials.header')
 
-        <main style="background-color: transparent;">
+        <main class="auth-main">
             <div class="container">
-                {{-- On utilise le style du formulaire de contact pour centrer et encadrer le contenu --}}
-                <div class="contact-form" style="max-width: 500px;">
-                    {{ $slot }}
+                <div class="auth-container">
+                    <div class="auth-card">
+                        {{ $slot }}
+                    </div>
                 </div>
             </div>
         </main>
 
-        {{-- Inclusion du pied de page du site public --}}
+        {{-- Pied de page du site public --}}
         @include('components.layouts.partials.footer')
 
         @fluxScripts
