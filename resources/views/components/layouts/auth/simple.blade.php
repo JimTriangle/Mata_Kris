@@ -23,6 +23,6 @@
         {{-- Pied de page du site public --}}
         @include('components.layouts.partials.footer')
 
-        @fluxScripts
+        @livewireScripts
     </body>
 </html>
