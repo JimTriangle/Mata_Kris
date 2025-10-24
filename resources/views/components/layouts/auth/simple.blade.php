@@ -5,9 +5,14 @@
         <!-- Script de gestion du thème -->
         <script>
             (function() {
-                const theme = localStorage.getItem('theme') || 'light';
-                document.documentElement.classList.remove('light', 'dark');
-                document.documentElement.classList.add(theme);
+                const applyTheme = function() {
+                    const theme = localStorage.getItem('theme') || 'light';
+                    document.documentElement.classList.remove('light', 'dark');
+                    document.documentElement.classList.add(theme);
+                };
+
+                // Apply theme immediately
+                applyTheme();
 
                 window.toggleTheme = function() {
                     const html = document.documentElement;
@@ -20,6 +25,9 @@
 
                     window.dispatchEvent(new CustomEvent('theme-changed', { detail: { theme: newTheme } }));
                 };
+
+                // Re-apply theme after Livewire navigation
+                document.addEventListener('livewire:navigated', applyTheme);
             })();
         </script>
     </head>
