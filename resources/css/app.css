@@ -805,7 +805,7 @@ footer p {
     height: 40px;
     border-radius: 50%;
     border: 2px solid var(--color-grey);
-    background: white;
+    background: var(--color-light);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -817,6 +817,15 @@ footer p {
     width: 20px;
     height: 20px;
     color: var(--color-dark);
+}
+
+.dark .button-icon-round {
+    background: #2a2a2a;
+    border-color: #404040;
+}
+
+.dark .button-icon-round svg {
+    color: #e0e0e0;
 }
 
 .button-icon-round:hover {

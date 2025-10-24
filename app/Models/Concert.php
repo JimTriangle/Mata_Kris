@@ -9,4 +9,8 @@ class Concert extends Model
 {
     use HasFactory;
     protected $fillable = ['date', 'ville', 'lieu', 'description'];
+
+    protected $casts = [
+        'date' => 'datetime',
+    ];
 }
