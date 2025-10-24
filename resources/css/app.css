@@ -2517,3 +2517,230 @@ footer p {
         padding: 0.875rem;
     }
 }
+/* ===================================================================
+   TOGGLE THÈME GLOBAL (CLAIR/SOMBRE)
+   =================================================================== */
+
+/* Bouton toggle thème dans le header public */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.theme-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-dark);
+    transition: all 0.3s ease;
+}
+
+/* Afficher le soleil en mode sombre, lune en mode clair */
+.light .sun-icon {
+    display: none;
+}
+
+.dark .moon-icon {
+    display: none;
+}
+
+/* Ajustements pour le mode sombre */
+.dark .theme-toggle {
+    background: rgba(47, 62, 70, 0.9);
+}
+
+.dark .theme-toggle:hover {
+    background: rgba(47, 62, 70, 1);
+}
+
+.dark .theme-icon {
+    color: #fdfdfd;
+}
+
+/* ===================================================================
+   MODE SOMBRE - STYLES GLOBAUX PAGES PUBLIQUES
+   =================================================================== */
+
+/* Variables pour le mode sombre */
+.dark {
+    --color-dark: #e0e0e0;
+    --color-light: #1a1a1a;
+    --color-grey: #404040;
+}
+
+/* Fond et texte général */
+.dark body {
+    background-color: #0f0f0f;
+    color: #e0e0e0;
+}
+
+.dark header,
+.dark main,
+.dark footer {
+    background-color: #1a1a1a;
+}
+
+/* Header en mode sombre */
+.dark header h1 a {
+    color: #fdfdfd;
+}
+
+.dark header .subtitle {
+    color: #b0b0b0;
+}
+
+.dark header nav a {
+    color: #b0b0b0;
+}
+
+.dark header nav a:hover,
+.dark header nav a.active {
+    color: var(--color-spring);
+}
+
+/* Hero section */
+.dark .hero-modern {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+.dark .hero-badge {
+    background: rgba(106, 153, 78, 0.2);
+    color: var(--color-spring);
+}
+
+/* Cards */
+.dark .hero-card {
+    background: #2a2a2a;
+    border: 1px solid #404040;
+}
+
+.dark .hero-card:hover {
+    background: #333;
+    border-color: var(--color-spring);
+}
+
+.dark .card-title {
+    color: #fdfdfd;
+}
+
+.dark .card-text {
+    color: #b0b0b0;
+}
+
+/* Concerts timeline */
+.dark .concerts-timeline::before {
+    background: linear-gradient(to bottom, rgba(197, 123, 87, 0.3), rgba(106, 153, 78, 0.3));
+}
+
+.dark .concert-timeline-card {
+    background: #2a2a2a;
+    border: 1px solid #404040;
+}
+
+.dark .concert-timeline-card:hover {
+    background: #333;
+    border-color: var(--color-spring);
+}
+
+.dark .concert-title {
+    color: #fdfdfd;
+}
+
+.dark .concert-location,
+.dark .concert-description {
+    color: #b0b0b0;
+}
+
+/* Galerie */
+.dark .gallery-item-masonry {
+    border: 1px solid #404040;
+}
+
+.dark .gallery-item-masonry:hover {
+    border-color: var(--color-spring);
+}
+
+.dark .gallery-item-masonry::after {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+}
+
+.dark .lightbox {
+    background: rgba(0, 0, 0, 0.98);
+}
+
+.dark .lightbox-close,
+.dark .lightbox-prev,
+.dark .lightbox-next {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fdfdfd;
+}
+
+.dark .lightbox-close:hover,
+.dark .lightbox-prev:hover,
+.dark .lightbox-next:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Footer */
+.dark footer {
+    background: #0f0f0f;
+    color: #b0b0b0;
+    border-top-color: #404040;
+}
+
+.dark footer a {
+    color: var(--color-spring);
+}
+
+.dark footer a:hover {
+    color: var(--color-autumn);
+}
+
+/* Formulaire contact */
+.dark input,
+.dark textarea,
+.dark select {
+    background: #2a2a2a;
+    border-color: #404040;
+    color: #e0e0e0;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+    background: #333;
+    border-color: var(--color-spring);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .theme-toggle {
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .theme-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
