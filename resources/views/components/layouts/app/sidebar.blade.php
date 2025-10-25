@@ -4,7 +4,7 @@
     @include('partials.head')
 </head>
 <body class="min-h-screen bg-zinc-50 dark:bg-zinc-900">
-    <div class="flex min-h-screen">
+    <div class="flex flex-row min-h-screen">
         <!-- Sidebar -->
         <aside
             x-data="{
