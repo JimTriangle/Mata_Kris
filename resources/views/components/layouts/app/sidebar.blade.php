@@ -36,8 +36,8 @@
 
             <!-- Logo -->
             <div class="h-16 flex items-center justify-center shrink-0 border-b border-gray-200 dark:border-gray-800">
-                <a href="{{ route('admin.dashboard') }}" class="flex items-center justify-center" :class="open ? 'w-12 h-12' : 'w-10 h-10'">
-                    <x-app-logo-icon />
+                <a href="{{ route('admin.dashboard') }}" class="flex items-center justify-center">
+                    <x-app-logo-icon :class="open ? 'w-12 h-12' : 'w-10 h-10'" />
                 </a>
             </div>
 
