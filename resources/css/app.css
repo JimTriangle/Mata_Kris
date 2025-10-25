@@ -3954,6 +3954,39 @@ aside img[alt="avatar"] {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Profile page layout override */
+.profile-page .mt-5.w-full.max-w-lg {
+    max-width: 100%;
+}
+
+/* Fixed icon sizes for profile page */
+.profile-badge svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+}
+
+.profile-meta-item svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.profile-card-header svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.profile-form-actions svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.success-message svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+}
+
 /* --- Danger Zone --- */
 .danger-zone {
     width: 100%;

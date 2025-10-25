@@ -70,7 +70,7 @@ new #[Layout('components.layouts.app')] class extends Component {
     }
 }; ?>
 
-<section class="w-full">
+<section class="w-full profile-page">
     @include('partials.settings-heading')
 
     <x-settings.layout :heading="__('Profile')" :subheading="__('Update your name and email address')">
