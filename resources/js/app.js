@@ -6,8 +6,10 @@ import collapse from '@alpinejs/collapse';
 Alpine.plugin(collapse);
 
 // Rendre Alpine disponible globalement
-// Livewire démarrera Alpine automatiquement, donc on ne l'appelle pas Alpine.start()
 window.Alpine = Alpine;
+
+// Démarrer Alpine.js
+Alpine.start();
 
 document.addEventListener('DOMContentLoaded', function() {
 
