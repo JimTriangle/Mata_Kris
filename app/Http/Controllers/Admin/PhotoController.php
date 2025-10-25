@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Photo;
 use Illuminate\Http\Request;
-use Intervention\Image\ImageManagerStatic as Image;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 use Exception;
 
 class PhotoController extends Controller
@@ -29,20 +30,25 @@ class PhotoController extends Controller
 
         try {
             $imageFile = $request->file('photo');
-            
+
             // Vérifiez que le fichier est bien présent
             if (!$imageFile || !$imageFile->isValid()) {
                 return redirect()->back()->withErrors(['photo' => 'Erreur lors du téléchargement de l\'image.']);
             }
 
-            $compressedImage = Image::make($imageFile)
-                ->resize(1200, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                })
-                ->encode('jpg', 75);
+            // Créer une instance de ImageManager avec le driver GD
+            $manager = new ImageManager(new Driver());
 
-            $base64Image = 'data:image/jpeg;base64,' . base64_encode($compressedImage);
+            // Lire et traiter l'image
+            $image = $manager->read($imageFile->getRealPath());
+
+            // Redimensionner l'image (scaleDown ne redimensionne que si l'image est plus grande)
+            $image->scaleDown(width: 1200);
+
+            // Encoder en JPEG avec qualité 75
+            $encodedImage = $image->toJpeg(quality: 75);
+
+            $base64Image = 'data:image/jpeg;base64,' . base64_encode($encodedImage);
 
             Photo::create([
                 'image' => $base64Image,
@@ -50,7 +56,7 @@ class PhotoController extends Controller
             ]);
 
             return redirect()->route('admin.photos.index')->with('success', 'Photo ajoutée avec succès.');
-            
+
         } catch (Exception $e) {
             return redirect()->back()->withErrors(['photo' => 'Erreur lors du traitement de l\'image: ' . $e->getMessage()]);
         }
