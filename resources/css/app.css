@@ -1991,12 +1991,21 @@ aside img[alt="avatar"] {
 }
 
 .dashboard-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-light);
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 3rem;
-    padding-bottom: 2rem;
+    padding: 1.5rem 0 2rem;
     border-bottom: 2px solid #f0f0f0;
+    transition: box-shadow 0.3s ease;
+}
+
+.dashboard-header.scrolled {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .dashboard-title {
@@ -3457,6 +3466,7 @@ aside img[alt="avatar"] {
 }
 
 .dark .dashboard-header {
+    background: #1a1a1a;
     border-bottom-color: #404040;
 }
 
