@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Photo;
 use Illuminate\Http\Request;
-use Intervention\Image\ImageManager;
-use Intervention\Image\Drivers\Gd\Driver;
 use Exception;
 
 class PhotoController extends Controller
@@ -36,19 +34,14 @@ class PhotoController extends Controller
                 return redirect()->back()->withErrors(['photo' => 'Erreur lors du téléchargement de l\'image.']);
             }
 
-            // Créer une instance de ImageManager avec le driver GD
-            $manager = new ImageManager(new Driver());
+            // Lire le contenu de l'image
+            $imageData = file_get_contents($imageFile->getRealPath());
 
-            // Lire et traiter l'image
-            $image = $manager->read($imageFile->getRealPath());
+            // Détecter le type MIME
+            $mimeType = $imageFile->getMimeType();
 
-            // Redimensionner l'image (scaleDown ne redimensionne que si l'image est plus grande)
-            $image->scaleDown(width: 1200);
-
-            // Encoder en JPEG avec qualité 75
-            $encodedImage = $image->toJpeg(quality: 75);
-
-            $base64Image = 'data:image/jpeg;base64,' . base64_encode($encodedImage);
+            // Créer le format base64
+            $base64Image = 'data:' . $mimeType . ';base64,' . base64_encode($imageData);
 
             Photo::create([
                 'image' => $base64Image,

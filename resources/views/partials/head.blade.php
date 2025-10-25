@@ -14,10 +14,16 @@
 <script>
     // Initialiser le thème avant le rendu de la page pour éviter le flash
     (function() {
-        const theme = localStorage.getItem('theme') || 'light';
-        // Important: enlever toute classe existante avant d'ajouter le thème
-        document.documentElement.classList.remove('light', 'dark');
-        document.documentElement.classList.add(theme);
+        // Fonction pour appliquer le thème
+        function applyTheme() {
+            const theme = localStorage.getItem('theme') || 'light';
+            // Important: enlever toute classe existante avant d'ajouter le thème
+            document.documentElement.classList.remove('light', 'dark');
+            document.documentElement.classList.add(theme);
+        }
+
+        // Appliquer le thème initialement
+        applyTheme();
 
         // Fonction globale pour toggle le thème
         window.toggleTheme = function() {
@@ -32,6 +38,11 @@
             // Dispatch event pour permettre aux composants de réagir
             window.dispatchEvent(new CustomEvent('theme-changed', { detail: { theme: newTheme } }));
         };
+
+        // Réappliquer le thème après chaque navigation Livewire
+        document.addEventListener('livewire:navigated', () => {
+            applyTheme();
+        });
     })();
 </script>
 
