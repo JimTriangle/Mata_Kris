@@ -2668,7 +2668,7 @@ aside img[alt="avatar"] {
 
 /* Fond et texte général */
 .dark body {
-    background-color: #0f0f0f;
+    background-color: #1a1a1a;
     color: #e0e0e0;
 }
 
@@ -3153,7 +3153,7 @@ aside img[alt="avatar"] {
 
 /* Main content background */
 .dark main {
-    background-color: #0f0f0f !important;
+    background-color: #1a1a1a !important;
 }
 
 /* Avatar et user menu */
