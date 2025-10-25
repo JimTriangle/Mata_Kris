@@ -6,16 +6,23 @@
 /* --- 1. Configuration Globale & Variables --- */
 :root {
     /* Palette de Couleurs */
-    --color-autumn: #c57b57;       /* Orange terreux - pour Mata */
-    --color-spring: #6a994e;       /* Vert frais - pour Kriss */
-    --color-dark: #2f3e46;         /* Gris anthracite pour le texte */
-    --color-light: #fdfdfd;       /* Blanc cassé pour les fonds */
-    --color-grey: #cad2c5;         /* Gris clair pour les bordures */
+    --color-autumn: #c57b57;
+    /* Orange terreux - pour Mata */
+    --color-spring: #6a994e;
+    /* Vert frais - pour Kriss */
+    --color-dark: #2f3e46;
+    /* Gris anthracite pour le texte */
+    --color-light: #fdfdfd;
+    /* Blanc cassé pour les fonds */
+    --color-grey: #cad2c5;
+    /* Gris clair pour les bordures */
     --font-primary: 'Montserrat', sans-serif;
     --font-headings: 'Playfair Display', serif;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -25,24 +32,40 @@ body {
     line-height: 1.7;
     margin: 0;
     color: var(--color-dark);
-    font-size: 16px; /* Base pour les unités rem */
+    font-size: 16px;
+    /* Base pour les unités rem */
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-headings);
     color: var(--color-dark);
     font-weight: 700;
 }
 
-h1 { font-size: 3rem; margin-bottom: 0; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 1.75rem; }
+h1 {
+    font-size: 3rem;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
 
 a {
     color: var(--color-spring);
     text-decoration: none;
     transition: color 0.3s ease;
 }
+
 a:hover {
     color: var(--color-autumn);
 }
@@ -52,7 +75,8 @@ a:hover {
     background: linear-gradient(45deg, var(--color-spring), #8ab573);
     color: white;
     padding: 12px 28px;
-    border-radius: 50px; /* Bords très arrondis */
+    border-radius: 50px;
+    /* Bords très arrondis */
     font-weight: bold;
     text-transform: uppercase;
     font-size: 0.9rem;
@@ -62,6 +86,7 @@ a:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .button:hover {
     color: white;
     transform: translateY(-3px);
@@ -71,7 +96,9 @@ a:hover {
 /* --- 3. Structure & Conteneur Principal --- */
 
 /* On s'assure que le contenu principal passe par-dessus l'animation */
-header, main, footer {
+header,
+main,
+footer {
     position: relative;
     z-index: 2;
     background-color: var(--color-light);
@@ -87,6 +114,7 @@ header {
     padding: 30px 0;
     text-align: center;
 }
+
 header .subtitle {
     font-family: var(--font-headings);
     font-style: italic;
@@ -94,9 +122,11 @@ header .subtitle {
     color: #777;
     margin-top: 0.5rem;
 }
+
 header nav {
     margin-top: 2rem;
 }
+
 header nav a {
     margin: 0 20px;
     font-weight: bold;
@@ -105,6 +135,7 @@ header nav a {
     position: relative;
     padding-bottom: 5px;
 }
+
 header nav a::after {
     content: '';
     position: absolute;
@@ -115,9 +146,11 @@ header nav a::after {
     background-color: var(--color-autumn);
     transition: width 0.4s ease;
 }
+
 header nav a:hover::after {
     width: 100%;
 }
+
 header nav a.active::after {
     width: 100%;
 }
@@ -133,12 +166,15 @@ footer {
     text-align: center;
     margin-top: 0px;
 }
+
 footer a {
     color: var(--color-grey);
 }
+
 footer a:hover {
     color: white;
 }
+
 footer p {
     margin: 5px 0;
 }
@@ -166,8 +202,8 @@ footer p {
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg,
-        rgba(197, 123, 87, 0.05) 0%,
-        rgba(106, 153, 78, 0.05) 100%);
+            rgba(197, 123, 87, 0.05) 0%,
+            rgba(106, 153, 78, 0.05) 100%);
     z-index: 0;
 }
 
@@ -292,6 +328,7 @@ footer p {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -396,8 +433,15 @@ footer p {
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .section-subtitle {
@@ -541,8 +585,8 @@ footer p {
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg,
-        rgba(197, 123, 87, 0.1),
-        rgba(106, 153, 78, 0.1));
+            rgba(197, 123, 87, 0.1),
+            rgba(106, 153, 78, 0.1));
     opacity: 0;
     transition: opacity 0.4s ease;
     z-index: 1;
@@ -605,6 +649,7 @@ footer p {
     text-align: center;
     margin-bottom: 2rem;
 }
+
 .hero h2 {
     font-size: 2rem;
 }
@@ -615,14 +660,16 @@ footer p {
     margin-bottom: 3rem;
 }
 
-.concert-list-home, .gallery-grid-home {
+.concert-list-home,
+.gallery-grid-home {
     margin-bottom: 2rem;
 }
+
 .concert-list-home li {
     background: #fff;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     margin-bottom: 10px;
     text-align: center;
     list-style: none;
@@ -1027,6 +1074,7 @@ footer p {
     list-style: none;
     padding: 0;
 }
+
 .concert-list li {
     display: flex;
     flex-wrap: wrap;
@@ -1040,11 +1088,13 @@ footer p {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     list-style: none;
 }
+
 .concert-list li:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
-.concert-list .date  {
+
+.concert-list .date {
     background-color: var(--color-autumn);
     color: white;
     padding: 15px;
@@ -1054,12 +1104,16 @@ footer p {
     font-size: 1.2em;
     flex-shrink: 0;
 }
+
 .concert-list .details {
     flex-grow: 1;
 }
-.concert-list .details h3, .concert-list .details p {
+
+.concert-list .details h3,
+.concert-list .details p {
     margin: 0;
 }
+
 .concert-list .ticket-link {
     margin-left: auto;
 }
@@ -1070,14 +1124,16 @@ footer p {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
+
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, filter 0.3s ease;
 }
+
 .gallery-item img:hover {
     transform: scale(1.05);
     filter: brightness(1.1);
@@ -1092,9 +1148,11 @@ footer p {
     border-radius: 12px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
 }
+
 .contact-form .form-group {
     margin-bottom: 20px;
 }
+
 .contact-form label {
     display: block;
     margin-bottom: 8px;
@@ -1102,7 +1160,9 @@ footer p {
     font-size: 0.9rem;
     color: var(--color-dark);
 }
-.contact-form input, .contact-form textarea {
+
+.contact-form input,
+.contact-form textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid var(--color-grey);
@@ -1113,7 +1173,9 @@ footer p {
     background: white;
     color: var(--color-dark);
 }
-.contact-form input:focus, .contact-form textarea:focus {
+
+.contact-form input:focus,
+.contact-form textarea:focus {
     outline: none;
     border-color: var(--color-spring);
     box-shadow: 0 0 0 3px rgba(106, 153, 78, 0.2);
@@ -1124,44 +1186,58 @@ footer p {
     background: #2a2a2a;
     border: 1px solid #404040;
 }
+
 .dark .contact-form label {
     color: #e0e0e0;
 }
+
 .dark .contact-form input,
 .dark .contact-form textarea {
     background: #1a1a1a;
     border-color: #404040;
     color: #e0e0e0;
 }
+
 .dark .contact-form input:focus,
 .dark .contact-form textarea:focus {
     background: #2a2a2a;
     border-color: var(--color-spring);
     box-shadow: 0 0 0 3px rgba(106, 153, 78, 0.2);
 }
+
 .dark .contact-form input::placeholder,
 .dark .contact-form textarea::placeholder {
     color: #888;
 }
 
 /* Messages de statut */
-.success-message, .error-message {
+.success-message,
+.error-message {
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 20px;
     font-weight: bold;
 }
+
 .success-message {
-    background-color: #e8f5e9; color: #388e3c;
+    background-color: #e8f5e9;
+    color: #388e3c;
 }
+
 .error-message {
-    background-color: #ffcdd2; color: #c62828;
+    background-color: #ffcdd2;
+    color: #c62828;
 }
 
 /* --- 5. Responsive Design (Agilité) --- */
 @media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
 
     header nav a {
         display: block;
@@ -1296,12 +1372,14 @@ footer p {
         flex-direction: column;
         align-items: flex-start;
     }
+
     .concert-list .ticket-link {
         margin-left: 0;
         margin-top: 15px;
         width: 100%;
         text-align: center;
     }
+
     .concert-list .ticket-link .button {
         width: 100%;
     }
@@ -1379,11 +1457,13 @@ footer p {
     left: -100px;
     width: 50px;
     height: auto;
-    opacity: 0.6; /* Légèrement plus transparent pour plus de subtilité */
+    opacity: 0.6;
+    /* Légèrement plus transparent pour plus de subtilité */
     animation-name: fall, fadeInOut;
     animation-timing-function: linear, ease-in-out;
     animation-iteration-count: infinite;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)); /* Ombre douce pour du relief */
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    /* Ombre douce pour du relief */
 }
 
 .leaf svg {
@@ -1399,6 +1479,7 @@ footer p {
     0% {
         transform: translateY(0);
     }
+
     100% {
         transform: translateY(105vh);
     }
@@ -1406,12 +1487,16 @@ footer p {
 
 /* Animation du balancement horizontal */
 @keyframes sway {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateX(0);
     }
+
     25% {
         transform: translateX(50px);
     }
+
     75% {
         transform: translateX(-50px);
     }
@@ -1422,6 +1507,7 @@ footer p {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -1432,12 +1518,15 @@ footer p {
     0% {
         opacity: 0;
     }
+
     10% {
         opacity: 0.6;
     }
+
     90% {
         opacity: 0.6;
     }
+
     100% {
         opacity: 0;
     }
@@ -1445,92 +1534,373 @@ footer p {
 
 /* --- 9. Style de la sidebar d'administration --- */
 
+.admin-body {
+    min-height: 100vh;
+    background-color: #f7f9fc;
+}
+
+html.dark .admin-body {
+    background-color: #0f172a;
+    color: #e5e7eb;
+}
+
 .admin-layout {
     display: flex;
     min-height: 100vh;
+    position: relative;
+    z-index: 10;
 }
 
 .admin-sidebar {
-    width: 250px;
+    width: 260px;
     background-color: var(--color-light);
     border-right: 1px solid var(--color-grey);
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 24px 20px;
     flex-shrink: 0;
-    position: relative;
-    z-index: 10; /* S'assure que la sidebar est au-dessus des feuilles */
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    transition: width 0.3s ease;
+    gap: 20px;
 }
 
-.admin-sidebar-header h3 {
-    font-family: var(--font-headings);
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 30px;
+.admin-sidebar-collapsed {
+    width: 90px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
-.admin-sidebar-header a {
-    text-decoration: none;
+.admin-sidebar-toggle {
+    position: absolute;
+    top: 18px;
+    right: -12px;
+    z-index: 20;
+}
+
+.toggle-button {
+    width: 28px;
+    height: 28px;
+    border-radius: 9999px;
+    border: 1px solid var(--color-grey);
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.toggle-button:hover {
+    background-color: rgba(106, 153, 78, 0.1);
+    border-color: var(--color-spring);
+}
+
+.toggle-icon {
+    width: 14px;
+    height: 14px;
     color: var(--color-dark);
 }
 
-.admin-sidebar-nav ul {
+.admin-sidebar-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-grey);
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-sidebar-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.admin-sidebar-nav .nav-items {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.admin-sidebar-nav a {
-    display: block;
-    padding: 12px 15px;
-    margin-bottom: 5px;
-    border-radius: 8px;
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 10px;
     text-decoration: none;
     color: var(--color-dark);
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background: transparent;
+    width: 100%;
 }
 
-.admin-sidebar-nav a:hover {
-    background-color: #e9e9e9;
+.nav-link svg {
+    flex-shrink: 0;
 }
 
-/* Style pour le lien de la page active */
-.admin-sidebar-nav a.active {
+.nav-link-button {
+    width: 100%;
+    border: none;
+    background: transparent;
+    text-align: left;
+    font: inherit;
+    cursor: pointer;
+}
+
+.nav-link:hover,
+.footer-link:hover {
+    background-color: rgba(106, 153, 78, 0.12);
+    color: var(--color-dark);
+}
+
+.nav-link.active,
+.nav-sublink.active {
     background: linear-gradient(45deg, var(--color-spring), #8ab573);
     color: white;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.nav-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-group-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+    padding-left: 34px;
+}
+
+.nav-sublink {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-sublink:hover {
+    background-color: rgba(106, 153, 78, 0.08);
 }
 
 .admin-sidebar-footer {
-    margin-top: auto; /* Pousse le pied de la sidebar en bas */
-    text-align: center;
-    padding-top: 20px;
+    margin-top: auto;
+    padding-top: 18px;
     border-top: 1px solid var(--color-grey);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.admin-sidebar-footer .user-name {
-    font-weight: bold;
-    margin-bottom: 10px;
+.footer-link {
+    width: 100%;
 }
 
-.admin-sidebar-footer .logout-button {
-    background: none;
+.user-menu {
+    position: relative;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    font-size: 0.85rem;
+}
+
+.user-name {
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.user-email {
+    font-size: 0.75rem;
+    color: #6b7280;
+    word-break: break-word;
+}
+
+.user-dropdown {
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 10px);
+    width: 100%;
+    background: white;
+    border: 1px solid var(--color-grey);
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 30;
+}
+
+.dropdown-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
     border: none;
-    color: var(--color-autumn);
+    background: transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--color-dark);
     cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-decoration: underline;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-link:hover {
+    background-color: rgba(106, 153, 78, 0.08);
+}
+
+html.dark .admin-sidebar {
+    background-color: #111827;
+    border-right-color: #374151;
+}
+
+html.dark .admin-sidebar-logo {
+    border-bottom-color: #374151;
+}
+
+html.dark .toggle-button {
+    background: rgba(55, 65, 81, 0.9);
+    border-color: #4b5563;
+}
+
+html.dark .toggle-button:hover {
+    background-color: rgba(148, 163, 184, 0.15);
+    border-color: #94a3b8;
+}
+
+html.dark .nav-link,
+html.dark .footer-link {
+    color: #e5e7eb;
+}
+
+html.dark .nav-link:hover,
+html.dark .footer-link:hover {
+    background-color: rgba(148, 163, 184, 0.15);
+}
+
+html.dark .nav-sublink {
+    color: #d1d5db;
+}
+
+html.dark .nav-sublink:hover {
+    background-color: rgba(148, 163, 184, 0.12);
+}
+
+html.dark .admin-sidebar-footer {
+    border-top-color: #374151;
+}
+
+html.dark .user-email {
+    color: #9ca3af;
+}
+
+html.dark .user-dropdown {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+html.dark .dropdown-link {
+    color: #f1f5f9;
+}
+
+html.dark .dropdown-link:hover {
+    background-color: rgba(148, 163, 184, 0.12);
 }
 
 .admin-content {
     flex-grow: 1;
-    padding: 30px;
     position: relative;
-    z-index: 10;
-    background-color: rgba(255, 255, 255, 0.7); /* Fond blanc semi-transparent pour voir les feuilles */
-    backdrop-filter: blur(5px); /* Effet de flou sur l'arrière-plan */
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+html.dark .admin-content {
+    background-color: rgba(17, 24, 39, 0.75);
+}
+
+.theme-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.theme-icon--dark {
+    display: none;
+}
+
+.theme-label {
+    display: inline;
+}
+
+.theme-label--dark {
+    display: none;
+}
+
+html.dark .theme-icon--light,
+html.dark .theme-label--light {
+    display: none;
+}
+
+html.dark .theme-icon--dark {
+    display: inline-flex;
+}
+
+html.dark .theme-label--dark {
+    display: inline;
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+.admin-sidebar-collapsed .nav-link,
+.admin-sidebar-collapsed .footer-link {
+    justify-content: center;
+}
+
+.admin-sidebar-collapsed .nav-label,
+.admin-sidebar-collapsed .user-details,
+.admin-sidebar-collapsed .nav-submenu {
+    display: none !important;
+}
+
+.admin-content-inner {
+    padding: 30px;
+    flex: 1;
+    overflow-y: auto;
 }
 
 /* Styles spécifiques pour les icônes SVG dans la sidebar admin */
@@ -1556,6 +1926,16 @@ aside .w-8 {
     height: 2rem !important;
 }
 
+aside .w-10 {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+}
+
+aside .w-12 {
+    width: 3rem !important;
+    height: 3rem !important;
+}
+
 aside .w-3\.5 {
     width: 0.875rem !important;
     height: 0.875rem !important;
@@ -1571,16 +1951,20 @@ aside img[alt="avatar"] {
 
 /* Style pour les textes d'erreur de validation */
 .error-text {
-    color: #c62828; /* Rouge pour les erreurs */
-    font-size: 0.875rem; /* Un peu plus petit que le texte normal */
+    color: #c62828;
+    /* Rouge pour les erreurs */
+    font-size: 0.875rem;
+    /* Un peu plus petit que le texte normal */
     display: block;
     margin-top: 5px;
 }
 
 .button-secondary {
     display: inline-block;
-    background-color: #e5e7eb; /* Gris clair */
-    color: #374151; /* Gris foncé */
+    background-color: #e5e7eb;
+    /* Gris clair */
+    color: #374151;
+    /* Gris foncé */
     padding: 12px 28px;
     border-radius: 50px;
     font-weight: bold;
@@ -1591,7 +1975,8 @@ aside img[alt="avatar"] {
 }
 
 .button-secondary:hover {
-    background-color: #d1d5db; /* Gris un peu plus foncé au survol */
+    background-color: #d1d5db;
+    /* Gris un peu plus foncé au survol */
 }
 
 /* ===================================================================
@@ -2597,6 +2982,7 @@ aside img[alt="avatar"] {
         padding: 0.875rem;
     }
 }
+
 /* ===================================================================
    TOGGLE THÈME GLOBAL (CLAIR/SOMBRE)
    =================================================================== */
@@ -2964,6 +3350,7 @@ aside img[alt="avatar"] {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
