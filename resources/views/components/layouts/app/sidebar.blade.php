@@ -8,13 +8,8 @@
         <!-- Sidebar -->
         <aside
             x-data="{
-                open: false,
+                open: window.innerWidth >= 1024,
                 init() {
-                    // Initialiser l'état après le chargement complet d'Alpine
-                    this.$nextTick(() => {
-                        this.open = window.innerWidth >= 1024;
-                    });
-
                     // Gérer le redimensionnement
                     window.addEventListener('resize', () => {
                         if (window.innerWidth >= 1024 && !this.open) {
