@@ -3203,3 +3203,98 @@ aside img[alt="avatar"] {
     color: white;
     border-color: var(--color-spring);
 }
+
+/* ===================================================================
+   MODE SOMBRE - ZONE D'UPLOAD DE PHOTOS
+   =================================================================== */
+
+/* Zone d'upload en mode sombre */
+.dark .upload-zone {
+    background: #2a2a2a;
+    border-color: #404040;
+}
+
+.dark .upload-zone.drag-over {
+    border-color: var(--color-spring);
+    background: rgba(106, 153, 78, 0.1);
+}
+
+/* Placeholder d'upload en mode sombre */
+.dark .upload-icon {
+    background: linear-gradient(135deg, rgba(106, 153, 78, 0.15), rgba(106, 153, 78, 0.25));
+}
+
+.dark .upload-title {
+    color: #fdfdfd;
+}
+
+.dark .upload-subtitle {
+    color: #b0b0b0;
+}
+
+.dark .upload-formats {
+    background: #1a1a1a;
+    color: #888;
+    border-color: #404040;
+}
+
+/* Formulaire admin en mode sombre */
+.dark .admin-form-modern {
+    background-color: transparent;
+}
+
+.dark .form-header {
+    border-bottom-color: #404040;
+}
+
+.dark .form-title {
+    color: #fdfdfd;
+}
+
+.dark .form-subtitle {
+    color: #b0b0b0;
+}
+
+.dark .form-content {
+    background: #2a2a2a;
+    border: 1px solid #404040;
+}
+
+.dark .form-label-modern {
+    color: #e0e0e0;
+}
+
+.dark .form-input-modern {
+    background: #1a1a1a;
+    border-color: #404040;
+    color: #e0e0e0;
+}
+
+.dark .form-input-modern:focus {
+    background: #2a2a2a;
+    border-color: var(--color-spring);
+    box-shadow: 0 0 0 4px rgba(106, 153, 78, 0.2);
+}
+
+.dark .form-input-modern::placeholder {
+    color: #888;
+}
+
+.dark .form-help {
+    color: #888;
+}
+
+.dark .form-actions-modern {
+    border-top-color: #404040;
+}
+
+.dark .button-admin-cancel {
+    background: #2a2a2a;
+    color: #e0e0e0;
+    border-color: #404040;
+}
+
+.dark .button-admin-cancel:hover {
+    background: #333;
+    color: #fdfdfd;
+}
