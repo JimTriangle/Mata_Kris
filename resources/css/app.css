@@ -1575,7 +1575,7 @@ html.dark .admin-body {
 .admin-sidebar-toggle {
     position: absolute;
     top: 18px;
-    right: -12px;
+    right: -18px;
     z-index: 20;
 }
 
